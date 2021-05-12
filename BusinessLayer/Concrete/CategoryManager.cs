@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,27 +10,54 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-   public class CategoryManager
-    {
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+    public class CategoryManager : ICategoryService
+    { 
+        ICategoryDal _categoryDal;  // field türü ICategoryDal  // field da değer ataması yapmak ıcın const metodu olustur
 
-        public List<Category> GetAll()
+        public CategoryManager(ICategoryDal categorydal)
         {
-            return repo.List();
+            _categoryDal = categorydal;
         }
 
-        public void CategoryAdd(Category p)
+        
+        public void CategoryAdd(Category category)
         {
-            if (p.CategoryName == "" || p.CategoryName.Length < 3 || p.CategoryDescription == ""
-                 || p.CategoryName.Length >= 51)
-            {
-                //Hata mesajı yazalım
+            _categoryDal.Insert(category); //ICServiden gelen category parametrisini ekle 
+        }
 
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+        public void DeleteCategory(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(x => x.CategoryID == id);
+        }
+
+        public Category GetByName(string name)
+        {
+            return _categoryDal.Get(x => x.CategoryName == name);
+        }
+
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
+        }
+
+        public List<Category> StatusIsFalse()
+        {
+            return _categoryDal.List(x => x.CategoryStatus == false);
+        }
+
+        public List<Category> StatusIsTrue()
+        {
+            return _categoryDal.List(x => x.CategoryStatus == true);
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            _categoryDal.Update(category); //kaegoriden gelen değeri güncelle
         }
     }
 }
