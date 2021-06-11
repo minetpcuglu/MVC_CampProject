@@ -17,6 +17,9 @@ namespace MVC_CampProject.Controllers
     {
         // GET: Category
         CategoryManager cm = new CategoryManager(new EfCategoryDal()); //DAL Katmanında EF klasoru olusturuldu
+
+
+      
         public ActionResult Index()
         {
             return View();

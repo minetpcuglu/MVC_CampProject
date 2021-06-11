@@ -1,0 +1,1 @@
+update writers set WriterStatus=1

@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{string button = ""; }
+
+<h2>Hakkında Veri Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Hakkımda Başlıgı 1</th>
+        <th>Hakkımda Başlıgı 2</th>
+        <th>Hakkımda Görseli</th>
+        <th>Hakkımda Görseli 2</th>
+        <th>Durum</th>
+
+    </tr>
+    @foreach (About item in Model)
+    {
+
+        if (item.AboutStatus == false)
+        {
+            button = "Aktif Yap";
+
+        }
+        if (item.AboutStatus == true)
+        {
+            button = "Pasif Yap";
+        }
+
+        <tr>
+            <th>@item.AboutID</th>
+            <td>@item.AboutDetails1</td>
+            <td>@item.AboutDetails2</td>
+            <td>@item.AboutImage1</td>
+            <td>@item.AboutImage2</td>
+
+            <td><a href="/About/ChangeStatus/@item.AboutID" class="btn btn-outline-warning"><b>@button</b></a></td>
+
+        </tr>
+    }
+</table>
+
+
+<br />
+@*Partial Cagırma Alanı*@
+
+@Html.Action("AddAboutPartial", "About")

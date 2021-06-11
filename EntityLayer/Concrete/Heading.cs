@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string HeadingName { get; set; }
         public DateTime HeadingDate { get; set; }
+        public bool HeadingStatus { get; set; }  //silme işlemi için aktiflik pasiflik 
 
 
         //İlişkiler   1 baslık(heading) 1 categoride vardır 

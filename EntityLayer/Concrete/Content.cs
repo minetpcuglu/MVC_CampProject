@@ -15,6 +15,7 @@ namespace EntityLayer.Concrete
         [StringLength(1000)]
         public string ContentValue { get; set; }
         public DateTime ContentDate { get; set; }
+        public bool ContentStatus { get; set; }  //silme işlemi için aktiflik pasiflik 
 
 
         //contentin (yazar)kısmı      ilişkili veriler

@@ -51,22 +51,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAbilityDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAbilityDal.cs" />
     <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Migrations\202105142244080_migUpdateWriter.cs" />
+    <Compile Include="Migrations\202105142244080_migUpdateWriter.designer.cs">
+      <DependentUpon>202105142244080_migUpdateWriter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105182208299_mig_writertitleupdate.cs" />
+    <Compile Include="Migrations\202105182208299_mig_writertitleupdate.designer.cs">
+      <DependentUpon>202105182208299_mig_writertitleupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105271529232_mig_imagechange.cs" />
+    <Compile Include="Migrations\202105271529232_mig_imagechange.designer.cs">
+      <DependentUpon>202105271529232_mig_imagechange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105271806494_mig_addwriterstatus.cs" />
+    <Compile Include="Migrations\202105271806494_mig_addwriterstatus.designer.cs">
+      <DependentUpon>202105271806494_mig_addwriterstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272035393_mig_contentstatusadd.cs" />
+    <Compile Include="Migrations\202105272035393_mig_contentstatusadd.designer.cs">
+      <DependentUpon>202105272035393_mig_contentstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272039470_mig_headingtatusadd.cs" />
+    <Compile Include="Migrations\202105272039470_mig_headingtatusadd.designer.cs">
+      <DependentUpon>202105272039470_mig_headingtatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106011224342_mig_newclasMessage.cs" />
+    <Compile Include="Migrations\202106011224342_mig_newclasMessage.designer.cs">
+      <DependentUpon>202106011224342_mig_newclasMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106041745227_contact_adddate.cs" />
+    <Compile Include="Migrations\202106041745227_contact_adddate.designer.cs">
+      <DependentUpon>202106041745227_contact_adddate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106042113004_mig_addımage_file_newclass.cs" />
+    <Compile Include="Migrations\202106042113004_mig_addımage_file_newclass.designer.cs">
+      <DependentUpon>202106042113004_mig_addımage_file_newclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106091346226_mig_new_tableadmin.cs" />
+    <Compile Include="Migrations\202106091346226_mig_new_tableadmin.designer.cs">
+      <DependentUpon>202106091346226_mig_new_tableadmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106111250062_migabout_update.cs" />
+    <Compile Include="Migrations\202106111250062_migabout_update.designer.cs">
+      <DependentUpon>202106111250062_migabout_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106111318106_migMessage_update.cs" />
+    <Compile Include="Migrations\202106111318106_migMessage_update.designer.cs">
+      <DependentUpon>202106111318106_migMessage_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,7 +136,44 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105142244080_migUpdateWriter.resx">
+      <DependentUpon>202105142244080_migUpdateWriter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105182208299_mig_writertitleupdate.resx">
+      <DependentUpon>202105182208299_mig_writertitleupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271529232_mig_imagechange.resx">
+      <DependentUpon>202105271529232_mig_imagechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105271806494_mig_addwriterstatus.resx">
+      <DependentUpon>202105271806494_mig_addwriterstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105272035393_mig_contentstatusadd.resx">
+      <DependentUpon>202105272035393_mig_contentstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105272039470_mig_headingtatusadd.resx">
+      <DependentUpon>202105272039470_mig_headingtatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106011224342_mig_newclasMessage.resx">
+      <DependentUpon>202106011224342_mig_newclasMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041745227_contact_adddate.resx">
+      <DependentUpon>202106041745227_contact_adddate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106042113004_mig_addımage_file_newclass.resx">
+      <DependentUpon>202106042113004_mig_addımage_file_newclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106091346226_mig_new_tableadmin.resx">
+      <DependentUpon>202106091346226_mig_new_tableadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106111250062_migabout_update.resx">
+      <DependentUpon>202106111250062_migabout_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106111318106_migMessage_update.resx">
+      <DependentUpon>202106111318106_migMessage_update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

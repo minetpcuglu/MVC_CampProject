@@ -18,14 +18,25 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string WriterSurname { get; set; }
 
-       [StringLength(100)]
+       [StringLength(250)]
         public string Image { get; set; }
 
-       [StringLength(100)]
+       [StringLength(200)]
         public string WriterMail { get; set; }
 
-        [StringLength(50)]
+        [StringLength(200)]
         public string WriterPassword { get; set; }
+
+        [StringLength(100)]
+        public string WriterAbout { get; set; }
+
+        [StringLength(100)]
+        public string WriterTitle { get; set; }
+
+        public bool WriterStatus { get; set; }
+
+
+
 
 
         //ilişkiler yazar içerik

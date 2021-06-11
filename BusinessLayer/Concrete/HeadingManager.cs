@@ -11,14 +11,14 @@ namespace BusinessLayer.Concrete
 {
     public class HeadingManager : IHeadingService
     {
-        IHeadingDal _headingDal;
+        IHeadingDal _headingDal; //field yapısı
 
-        public HeadingManager(IHeadingDal headingDal)
+        public HeadingManager(IHeadingDal headingDal)  
         {
            _headingDal = headingDal;
         }
 
-        public List<Heading> CategoryNameWithMaximumTitles()
+        public List<Heading> CategoryNameWithMaximumTitles()  //ödev 2
         {
             return _headingDal.List().GroupBy(x => x.CategoryID).Select(y => new Heading
             {
@@ -33,9 +33,38 @@ namespace BusinessLayer.Concrete
             }).Take(1).OrderByDescending(o => o.CategoryID).ToList();
         }
 
-        public List<Heading> Get(int id)
+        public List<Heading> Get(int id)  //ödev 2 
         {
             return _headingDal.List(x => x.CategoryID == id);
+        }
+
+        public Heading GetById(int id)
+        {
+            return _headingDal.Get(x => x.HeadingID == id);
+        }
+
+
+
+        public List<Heading> GetList()
+        {
+           return _headingDal.List();
+        }
+
+        public void HeadingAdd(Heading heading)
+        {
+            _headingDal.Insert(heading);
+            
+        }
+
+        public void HeadingDelete(Heading heading)
+        {
+           
+            _headingDal.Update(heading);
+        }
+
+        public void HeadingUpdate(Heading heading)
+        {
+            _headingDal.Update(heading);
         }
     }
 }

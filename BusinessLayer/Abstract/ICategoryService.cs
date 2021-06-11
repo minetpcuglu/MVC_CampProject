@@ -18,7 +18,7 @@ namespace BusinessLayer.Abstract
 
         void UpdateCategory(Category category); //güncelleme işlemi 
 
-        Category GetByName(string name); //dısarıdan bir isim alıcak
+       Category GetByName(string name); //dısarıdan bir isim alıcak
 
         List<Category> StatusIsTrue();
         List<Category> StatusIsFalse();

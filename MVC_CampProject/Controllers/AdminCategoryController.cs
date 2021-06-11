@@ -15,6 +15,8 @@ namespace MVC_CampProject.Controllers
     {
         // GET: AdminCategory
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+
+        [Authorize(Roles ="A")]  //index sayfasına giriş yapanlar görebilecek  //sadece A rolune sahip kişiler
         public ActionResult Index()
         {
             var categoryvalues = categoryManager.GetList();
@@ -24,7 +26,7 @@ namespace MVC_CampProject.Controllers
         [HttpGet]
         public ActionResult AddCategory()
         {
-            return View();
+           return View(); 
         }
 
         [HttpPost]

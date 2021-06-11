@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    interface IHeadingService
+   public  interface IHeadingService
     {
-        List<Heading> Get(int id);
-        List<Heading> CategoryNameWithMaximumTitles();
+        List<Heading> GetList();
+        void HeadingAdd(Heading heading);
+        Heading GetById(int id);
+        void HeadingDelete(Heading heading);
+        void HeadingUpdate(Heading heading);
+
+
+        List<Heading> Get(int id);  //ödev 2
+        List<Heading> CategoryNameWithMaximumTitles(); //ödev 2
     }
 }
