@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.Heading
+
+@{
+    ViewBag.Title = "UpdateHeadingPage";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+
+<h2>Başlık Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("UpdateHeadingPage", "WriterPanel", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.HiddenFor(x => x.HeadingID)   @*gizli olcak gözükmesin*@
+    @Html.HiddenFor(x => x.HeadingDate)   @*gizli olcak gözükmesin*@
+
+    @Html.Label("Başlık Adı")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+
+    @Html.HiddenFor(x => x.WriterID)   @*gizli olcak gözükmesin hata vermemesi için gizli bir şekilde koyuyoruz*@
+
+    <br />
+    @Html.Label("Kategoriler")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vic, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success"><b>Güncelle</b></button>
+</div>
+}
+
+
+

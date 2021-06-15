@@ -10,6 +10,8 @@ using System.Web.Security;
 
 namespace MVC_CampProject.Controllers
 {
+
+    [AllowAnonymous] //proje bazında olusturulan kurallardan muaf olması için  authourize 
     public class LoginController : Controller
     {
         // GET: Login
@@ -39,6 +41,29 @@ namespace MVC_CampProject.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
+        }
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer a)
+        {
+            var bilgiler = c.Writers.FirstOrDefault(x => x.WriterMail == a.WriterMail && x.WriterPassword == a.WriterPassword);
+            if (bilgiler != null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.WriterMail, false);
+                Session["WriterMail"] = bilgiler.WriterMail.ToString();
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+            else
+            {
+                return RedirectToAction("WriterLogin");
+            }
+           
         }
 
     }

@@ -9,11 +9,14 @@ using System.Web.Mvc;
 
 namespace MVC_CampProject.Controllers
 {
+   
     public class ContactController : Controller
     {
         ContactManager cm = new ContactManager(new EfContactDal());
         ContactValidator rules = new ContactValidator();
         // GET: Contact
+
+       
         public ActionResult Index()
         {
             var contactRules = cm.GetList();

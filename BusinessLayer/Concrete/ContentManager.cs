@@ -43,6 +43,13 @@ namespace BusinessLayer.Concrete
             return _contentDal.List(x => x.HeadingID == id);
         }
 
+        public List<Content> GetListWriterID(int id)
+        {
+            return _contentDal.List(x => x.WriterID == id);
+        }
+
+       
+
         public void UpdateContent(Content content)
         {
             throw new NotImplementedException();

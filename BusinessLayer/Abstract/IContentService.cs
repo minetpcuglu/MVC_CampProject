@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Content> GetList();
 
         List<Content> GetListHeadingID(int id); //şartlı listeleme
+        List<Content> GetListWriterID(int id); //şartlı listeleme
         void ContentAdd(Content content);//categoryden eklemek için bir tanım yapıldı
 
         Content GetById(int id);  //dısarıdan bir ıd alıcak
