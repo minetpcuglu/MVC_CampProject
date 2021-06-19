@@ -40,7 +40,8 @@ namespace MVC_CampProject.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Login");
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
 
         [HttpGet]

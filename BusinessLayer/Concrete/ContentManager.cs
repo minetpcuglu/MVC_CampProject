@@ -20,17 +20,17 @@ namespace BusinessLayer.Concrete
 
         public void ContentAdd(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(content);
         }
 
         public void DeleteContent(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Delete(content);
         }
 
         public Content GetById(int id)
         {
-            throw new NotImplementedException();
+           return _contentDal.Get(x => x.ContentID == id);
         }
 
         public List<Content> GetList()
@@ -52,7 +52,7 @@ namespace BusinessLayer.Concrete
 
         public void UpdateContent(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Update(content);
         }
     }
 }

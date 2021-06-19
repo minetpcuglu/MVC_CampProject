@@ -101,5 +101,13 @@ namespace MVC_CampProject.Controllers
 
             return RedirectToAction("MyHeading");
         }
+
+        public ActionResult AllHeading()
+        {
+            var deger = hm.GetList();
+            return View(deger);
+        }
+
+
     }
 }
