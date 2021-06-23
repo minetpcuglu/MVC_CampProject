@@ -15,6 +15,8 @@ namespace MVC_CampProject.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());  //ilişkili tabloları cekmek şçşn
         WriterManager wm = new WriterManager(new EfWriterDal());        //ilişkili tabloları cekmek şçşn
+
+     
         public ActionResult Index()
         {
             var deger = hm.GetList();

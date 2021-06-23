@@ -17,6 +17,8 @@ namespace MVC_CampProject.Controllers
         WriterValidator rules = new WriterValidator();
         WriterManager wm = new WriterManager(new EfWriterDal());
 
+       
+
         public ActionResult Index()
         {
             var writervalues = wm.GetList();

@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace MVC_CampProject.Controllers
     {
         // GET: Login
         Context c = new Context();
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
      
         public ActionResult Index()
         {
@@ -25,6 +28,7 @@ namespace MVC_CampProject.Controllers
         public ActionResult Index(Admin ad)  //kullanıcı giriş kısmını ayarlama 
         {
             var bilgiler = c.Admins.FirstOrDefault(x => x.AdminUserName == ad.AdminUserName && x.AdminPassword == ad.AdminPassword);
+        
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.AdminUserName, false);
@@ -53,7 +57,8 @@ namespace MVC_CampProject.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer a)
         {
-            var bilgiler = c.Writers.FirstOrDefault(x => x.WriterMail == a.WriterMail && x.WriterPassword == a.WriterPassword);
+            //var bilgiler = c.Writers.FirstOrDefault(x => x.WriterMail == a.WriterMail && x.WriterPassword == a.WriterPassword);
+            var bilgiler = writerLoginManager.GetWriter(a.WriterMail , a.WriterPassword);
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.WriterMail, false);

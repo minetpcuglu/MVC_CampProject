@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -15,10 +16,13 @@ namespace MVC_CampProject.Controllers
     {
         MessageManager MM = new MessageManager(new EfMessageDal());
         MessageValidator rules = new MessageValidator();
+ 
         // GET: WriterPanelMessage
         public ActionResult Inbox()  //gelen mesajları listeleme
         {
-            var deger = MM.GetListInbox();
+           string p = (string)Session["WriterMail"];   //session kullanımı
+          
+            var deger = MM.GetListInbox(p);
             var count = MM.GetListStatusFalse().Count();
             ViewBag.durum = count;
 
@@ -28,9 +32,10 @@ namespace MVC_CampProject.Controllers
         {
             return PartialView();
         }
-        public ActionResult SendBox()  //gönderilen mesajlar
+        public ActionResult SendBox( )  //gönderilen mesajlar
         {
-            var deger = MM.GetListSendbox();
+            string p = (string)Session["WriterMail"];   //session kullanımı
+            var deger = MM.GetListSendbox(p);
             return View(deger);
         }
 
@@ -59,10 +64,12 @@ namespace MVC_CampProject.Controllers
         [HttpPost]
         public ActionResult AddMessage(Message p)
         {
+            string sender = (string)Session["WriterMail"];   //session kullanımı
             ValidationResult result = rules.Validate(p);
+
             if (result.IsValid)
             {
-                p.SenderMail = "123456@gmail.com";
+                p.SenderMail = sender;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());                 //datetime hatası için 
                 MM.MessageAdd(p);
                 return RedirectToAction("SendBox");

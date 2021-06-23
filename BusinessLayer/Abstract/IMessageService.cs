@@ -12,8 +12,8 @@ namespace BusinessLayer.Abstract
 
         List<Message> GetListStatusTrue();
         List<Message> GetListStatusFalse();
-        List<Message> GetListInbox(); //şartlı listeleme
-        List<Message> GetListSendbox(); //şartlı listeleme
+        List<Message> GetListInbox(string p); //şartlı listeleme
+        List<Message> GetListSendbox(string p); //şartlı listeleme
         //List<Message> GetListTaslakBox();
         void MessageAdd(Message message);//Mesaj eklemek için bir tanım yapıldı
 

@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using BusinessLayer.ValidationRules;
 
 namespace MVC_CampProject.Controllers
 {
@@ -14,17 +18,46 @@ namespace MVC_CampProject.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterValidator rules = new WriterValidator();
         Context c = new Context();
 
 
 
         // GET: WriterPanel
-        public ActionResult WriterProfile()
+        [HttpGet]
+        public ActionResult WriterProfile(int id=0)
         {
+            string p = (string)Session["WriterMail"];   //session kullanımı
+      
+           id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var deger = wm.GetById(id);
+            
+            return View(deger);
+
+        }
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+
+            ValidationResult result = rules.Validate(p);  //kuralların calısması için valıdationrules
+            if (result.IsValid)//sonuclar gecerliyse
+            {
+                wm.writerUpdate(p);
+                return RedirectToAction("AllHeading","WriterPanel");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+
+            }
             return View();
         }
 
-      
+
         public ActionResult MyHeading(string p) //baslıklarım 
         {
           
@@ -102,11 +135,14 @@ namespace MVC_CampProject.Controllers
             return RedirectToAction("MyHeading");
         }
 
-        public ActionResult AllHeading()
+        public ActionResult AllHeading( int sayfa =1)
         {
-            var deger = hm.GetList();
+
+            var deger = hm.GetList().ToPagedList(sayfa,4);
             return View(deger);
         }
+
+     
 
 
     }

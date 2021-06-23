@@ -29,15 +29,15 @@ namespace BusinessLayer.Concrete
              
         }
 
-        public List<Message> GetListInbox()  //listeleme gelen mesaj 
+        public List<Message> GetListInbox(string p )  //listeleme gelen mesaj 
         {
-           return _messageDal.List(x=>x.ReceiverMail== "123456@gmail.com");
+           return _messageDal.List(x=>x.ReceiverMail== p);
         }
 
       
-        public List<Message> GetListSendbox()  //sartlı listeleme gönderilen mesaj 
+        public List<Message> GetListSendbox(string p)  //sartlı listeleme gönderilen mesaj 
         {
-            return _messageDal.List(x => x.SenderMail == "123456@gmail.com");
+            return _messageDal.List(x => x.SenderMail == p);
         }
 
         public List<Message> GetListStatusFalse()

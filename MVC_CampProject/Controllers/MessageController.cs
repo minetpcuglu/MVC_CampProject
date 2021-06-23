@@ -16,17 +16,21 @@ namespace MVC_CampProject.Controllers
         // GET: Message
         MessageManager MM = new MessageManager(new EfMessageDal());
         MessageValidator rules = new MessageValidator();
-        public ActionResult Inbox()  //gelen mesajları listeleme
+
+        [Authorize]
+        public ActionResult Inbox(string p)  //gelen mesajları listeleme
         {
-            var deger = MM.GetListInbox();
+            var deger = MM.GetListInbox(p);
             var count = MM.GetListStatusFalse().Count();
             ViewBag.durum = count;
             
             return View(deger);
         }
-        public ActionResult SendBox()  //gönderilen mesajlar
+
+        [Authorize]
+        public ActionResult SendBox(string p)  //gönderilen mesajlar
         {
-            var deger = MM.GetListSendbox();
+            var deger = MM.GetListSendbox(p);
             return View(deger);
         }
 
