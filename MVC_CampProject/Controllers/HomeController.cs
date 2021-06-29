@@ -30,5 +30,11 @@ namespace MVC_CampProject.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult HomePage()
+        {
+            return View();
+        }
+
     }
 }

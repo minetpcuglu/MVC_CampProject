@@ -9,9 +9,10 @@ namespace BusinessLayer.Abstract
 {
     public interface IContentService
     {
-        List<Content> GetList();
+        List<Content> GetList( );
+        List<Content> GetListAra( string p);
 
-        List<Content> GetListHeadingID(int id); //şartlı listeleme
+        List<Content> GetListHeadingID(int id);
         List<Content> GetListWriterID(int id); //şartlı listeleme
         void ContentAdd(Content content);//categoryden eklemek için bir tanım yapıldı
 
