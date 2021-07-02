@@ -23,6 +23,13 @@ namespace MVC_CampProject.Controllers
             return View(deger);
         }
 
+        public ActionResult HeadingReport()
+        {
+            var deger = hm.GetList();
+            return View(deger);
+        }
+
+
         [HttpGet]
         public ActionResult HeadingAdd()
         {
@@ -96,5 +103,13 @@ namespace MVC_CampProject.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult WriterByHeading(int id) //SOLİD her sınıf kendisine ait işlemleri yapsın  baslıkla alakalı değil içerikle alakalı //içerikleri baslıga göre getir
+        {
+            var deger = hm.GetListByWriter(id);
+            return View(deger);
+        }
+
+
     }
 }

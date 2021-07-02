@@ -10,8 +10,8 @@
 @using (Html.BeginForm("UpdateCategoryPage", "AdminCategory", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.Label("Kategori Id ")
-        @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+       
+        @Html.HiddenFor(x => x.CategoryID, new { @class = "form-control" })
     </div>
     <br />
     <div class="form-group">
