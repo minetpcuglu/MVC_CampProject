@@ -43,7 +43,7 @@ namespace BusinessLayer.Roles
         public override string[] GetRolesForUser(string AdminUserName)
         {
             var x = ADM.GetByName(AdminUserName);
-            return new string[] { x.AdminRole };
+            return new string[] { x.AdminName};
         }
 
         public override string[] GetUsersInRole(string roleName)

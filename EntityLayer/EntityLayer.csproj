@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Concrete\Ability.cs" />
     <Compile Include="Concrete\About.cs" />
+    <Compile Include="Concrete\AdminRole.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Contact.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Concrete\ImageFile.cs" />
     <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Writer.cs" />
+    <Compile Include="Dto\AdminForRegisterDto.cs" />
     <Compile Include="Dto\AdminLoginDto.cs" />
     <Compile Include="Dto\Istatistik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

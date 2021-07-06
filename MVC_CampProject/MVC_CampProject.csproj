@@ -141,6 +141,7 @@
     <Compile Include="Controllers\AbilityController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AuthhorizationController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -2660,6 +2661,11 @@
     <Content Include="Views\Chart\Index2.cshtml" />
     <Content Include="Views\Chart\Index3.cshtml" />
     <Content Include="Views\Heading\HeadingReport.cshtml" />
+    <Content Include="Views\Test\SweetAlert.cshtml" />
+    <Content Include="Views\Authhorization\Index.cshtml" />
+    <Content Include="Views\Authhorization\AddAdmin.cshtml" />
+    <Content Include="Views\Authhorization\UpdateAdminPage.cshtml" />
+    <Content Include="Views\Heading\CategoryByHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

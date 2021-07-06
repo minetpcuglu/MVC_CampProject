@@ -19,14 +19,18 @@ namespace BusinessLayer.Concrete
             _adminDal = adminDal;
         }
 
-        public void AdminAdd(Admin admin)
-        {
+       
+
+        public void AdminAdd( Admin admin)
+        { 
+            admin.AdminStatus = true;
             _adminDal.Insert(admin);
         }
 
         public void AdminDelete(Admin admin)
         {
-            _adminDal.Delete(admin);
+          
+            _adminDal.Update(admin);
         }
 
         public void AdminUpdate(Admin admin)
@@ -41,13 +45,15 @@ namespace BusinessLayer.Concrete
 
         public Admin GetByName(string name)
         {
-            return _adminDal.Get(x => x.AdminUserName == name);
+            return _adminDal.Get(x => x.AdminName == name);
         }
 
         public List<Admin> GetList()
         {
-           return _adminDal.List();
+           return _adminDal.List().Where(x=>x.AdminStatus==true).ToList();
         }
+
+        
 
         public bool Login(AdminLoginDto admin)
         {

@@ -27,12 +27,12 @@ namespace MVC_CampProject.Controllers
         [HttpPost]
         public ActionResult Index(Admin ad)  //kullanıcı giriş kısmını ayarlama 
         {
-            var bilgiler = c.Admins.FirstOrDefault(x => x.AdminUserName == ad.AdminUserName && x.AdminPassword == ad.AdminPassword);
+            var bilgiler = c.Admins.FirstOrDefault(x => x.AdminName == ad.AdminName && x.AdminPassword == ad.AdminPassword);
         
             if (bilgiler != null)
             {
-                FormsAuthentication.SetAuthCookie(bilgiler.AdminUserName, false);
-                Session["AdminUserName"] = bilgiler.AdminUserName.ToString();
+                FormsAuthentication.SetAuthCookie(bilgiler.AdminName, false);
+                Session["AdminName"] = bilgiler.AdminName.ToString();
                 return RedirectToAction("Index", "AdminCategory");
             }
             else

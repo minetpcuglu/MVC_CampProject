@@ -12,6 +12,8 @@ namespace MVC_CampProject.Controllers
     {
         Context c = new Context();
         // GET: Chart
+
+        //[Authorize(Roles = "A")]
         public ActionResult Index()
         {
             return View();

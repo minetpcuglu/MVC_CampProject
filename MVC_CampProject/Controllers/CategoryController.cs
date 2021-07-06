@@ -54,7 +54,7 @@ namespace MVC_CampProject.Controllers
                     ModelState.AddModelError(hata.PropertyName, hata.ErrorMessage);
                 }
             }
-            return View(); //ekleme işlemi gerçekleştikten sonra tanımlanan metoda git
+            return View(); 
         }
 
 

@@ -6,7 +6,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Login 09</title>
+    <title>Giriş Yap</title>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -31,11 +36,11 @@
                         <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
                         <h3 class="text-center mb-0">Hoşgeldiniz</h3>
                         <p class="text-center">Lütfen bilgilerinizi giriniz</p>
-                   @using (Html.BeginForm("Index", "Login", FormMethod.Post))
-                   {
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                        {
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-                                <input type="text" class="form-control" name="AdminUserName" placeholder="Kullanıcı Adı" required>
+                                <input type="text" class="form-control" name="AdminName" placeholder="Kullanıcı Adı" required>
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
@@ -46,15 +51,30 @@
                                     <a href="#">Şifremi Unuttum</a>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
+                            @*<div class="form-group">
+                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
+            </div>*@
+
+                            <div class="form-group d-md-flex ">
+                                <button class="btn btn- btn-outline-warning" id="Button3" style="margin-left:99px;"> <b>Giriş Yap</b></button>
                             </div>
-                   }
-               
+                          
+                                <script>
+                                    $('#Button3').click(function () {
+
+                                        swal("Hoşgeldiniz!", "Giriş Başarılı", "success");
+                                    });
+                                </script>
+
+                      
+
+                        }
+
 
                         <div class="w-100 text-center mt-4 text">
-                         
-                            <a href="#">Ana Sayfaya Dön</a>
+                            <button class="btn btn-outline-dark"><a href="/Home/HomePage/"><b>Ana Sayfaya Dön</b></a></button>
+
+                           
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +17,9 @@ namespace MVC_CampProject.Controllers
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());  //ilişkili tabloları cekmek şçşn
         WriterManager wm = new WriterManager(new EfWriterDal());        //ilişkili tabloları cekmek şçşn
+        HeadingValidator rules = new HeadingValidator();
 
-     
+
         public ActionResult Index()
         {
             var deger = hm.GetList();
@@ -62,9 +65,27 @@ namespace MVC_CampProject.Controllers
         [HttpPost]
         public ActionResult HeadingAdd(Heading h)
         {
-            h.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString()); //tarihi ındex kısmında eklemek istemiyorsak
-            hm.HeadingAdd(h);
-            return RedirectToAction("Index");
+
+            //ValidationResult result = rules.Validate(h);
+
+            //if (result.IsValid)
+            //{
+                h.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString()); //tarihi ındex kısmında eklemek istemiyorsak
+                hm.HeadingAdd(h);
+                return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    foreach (var hata in result.Errors)
+            //    {
+            //        ModelState.AddModelError(hata.PropertyName, hata.ErrorMessage);
+            //    }
+            //}
+            //return View();
+
+
+
+           
         }
 
        
@@ -83,14 +104,13 @@ namespace MVC_CampProject.Controllers
             ViewBag.vic = ValueCategory;  //tasımak için 
 
 
-
             var deger = hm.GetById(id);
             return View(deger);
         }
         [HttpPost]
         public ActionResult UpdateHeadingPage(Heading p)
         {
-          
+           
             hm.HeadingUpdate(p);
             return RedirectToAction("Index");
         }
@@ -107,6 +127,12 @@ namespace MVC_CampProject.Controllers
         public ActionResult WriterByHeading(int id) //SOLİD her sınıf kendisine ait işlemleri yapsın  baslıkla alakalı değil içerikle alakalı //içerikleri baslıga göre getir
         {
             var deger = hm.GetListByWriter(id);
+            return View(deger);
+        }
+
+        public ActionResult CategoryByHeading(int id) //SOLİD her sınıf kendisine ait işlemleri yapsın  baslıkla alakalı değil içerikle alakalı //içerikleri baslıga göre getir
+        {
+            var deger = hm.GetListByCategory(id);
             return View(deger);
         }
 

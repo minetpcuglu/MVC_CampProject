@@ -8,8 +8,8 @@
 @using (Html.BeginForm("UpdateHeadingPage", "Heading", FormMethod.Post))
 {
 <div class="form-group">
-    @Html.Label("Başlık ID")
-    @Html.TextBoxFor(x => x.HeadingID, new { @class = "form-control" })
+  
+    @Html.HiddenFor(x => x.HeadingID, new { @class = "form-control" })
     <br />
     @Html.Label("Başlık Adı")
     @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
