@@ -14,6 +14,7 @@ namespace BusinessLayer.ValidationRules
         {
             RuleFor(x => x.AdminName).NotEmpty().WithMessage("Mail Adresi Boş geçilemez");
             RuleFor(x => x.AdminPassword).NotEmpty().WithMessage("Parola  Boş geçilemez");
+            RuleFor(x => x.RoleId).NotEmpty().WithMessage("Rol Boş geçilemez");
            
            
             

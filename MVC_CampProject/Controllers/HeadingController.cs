@@ -23,6 +23,8 @@ namespace MVC_CampProject.Controllers
         public ActionResult Index()
         {
             var deger = hm.GetList();
+           
+           
             return View(deger);
         }
 
@@ -58,6 +60,8 @@ namespace MVC_CampProject.Controllers
                                                   }).ToList();
 
             ViewBag.a = ValueWriter;  //tasımak için 
+
+            
 
             return View();
         }

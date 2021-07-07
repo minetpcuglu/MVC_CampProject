@@ -47,6 +47,7 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetList()
         {
+           
            return _headingDal.List();
         }
 
@@ -62,6 +63,7 @@ namespace BusinessLayer.Concrete
 
         public void HeadingAdd(Heading heading)
         {
+            heading.HeadingStatus = true;
             _headingDal.Insert(heading);
             
         }
@@ -74,6 +76,7 @@ namespace BusinessLayer.Concrete
 
         public void HeadingUpdate(Heading heading)
         {
+
             _headingDal.Update(heading);
         }
     }

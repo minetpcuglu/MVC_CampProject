@@ -41,6 +41,16 @@ namespace MVC_CampProject.Controllers
             }
 
         }
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+   
+
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();

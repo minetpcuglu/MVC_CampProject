@@ -47,22 +47,22 @@ namespace MVC_CampProject.Controllers
         [HttpPost]
         public ActionResult AddAdmin(Admin admin)
         {
-          
-            //ValidationResult result = rules.Validate(admin);
 
-            //if (result.IsValid)
-            //{
+            ValidationResult result = rules.Validate(admin);
+
+            if (result.IsValid)
+            {
                 AdM.AdminAdd(admin);
                 return RedirectToAction("Index");
-            //}
-            //else
-            //{
-            //    foreach (var hata in result.Errors)
-            //    {
-            //        ModelState.AddModelError(hata.PropertyName, hata.ErrorMessage);
-            //    }
-            //}
-            //return View();
+            }
+            else
+            {
+                foreach (var hata in result.Errors)
+                {
+                    ModelState.AddModelError(hata.PropertyName, hata.ErrorMessage);
+                }
+            }
+            return View();
         }
 
         [HttpGet]
@@ -93,7 +93,7 @@ namespace MVC_CampProject.Controllers
         {
             var deger = AdM.GetById(id);
             deger.AdminStatus = false;
-            AdM.AdminDelete(deger);
+            //AdM.AdminDelete(deger);
             return RedirectToAction("Index");
 
         }
