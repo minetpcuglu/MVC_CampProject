@@ -1,6 +1,7 @@
 # MVC_CampProject
-SOLID Prensiplerini dikkate alarak Asp.Net Core Mvc5 Kullanarak geliştirdiğim Web Projesinde 
-*Entity Framework (CodeFirst) *Authorize *FluentValidation *N Katmanlı Mimari *Sql Linq Sorguları 
+SOLID Prensiplerini dikkate alarak,
+Asp.Net  Mvc5 Kullanarak geliştirdiğim Web Projesinde ;
+*Entity Framework (CodeFirst) *Authorize *FluentValidation *N Katmanlı Mimari *Sql Linq Sorguları kullanmaış bulunmaktayım ve aşağıda projemle alakalı bazı görseller mecvuttur.
 
 
 ![9](https://user-images.githubusercontent.com/77547699/128600872-fc4d6354-a632-494f-8595-07e184bff310.png)
