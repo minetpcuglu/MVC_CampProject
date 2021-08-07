@@ -1,3 +1,10 @@
+# MVC_CampProject
+SOLID Prensiplerini dikkate alarak Asp.Net Core Mvc5 Kullanarak geliştirdiğim Web Projesinde 
+*Entity Framework (CodeFirst) *Authorize *FluentValidation *N Katmanlı Mimari *Sql Linq Sorguları 
+
+
+![9](https://user-images.githubusercontent.com/77547699/128600872-fc4d6354-a632-494f-8595-07e184bff310.png)
+![1](https://user-images.githubusercontent.com/77547699/128600880-300ff88d-3cec-4803-867e-e185c9ccc485.png)
 ![8](https://user-images.githubusercontent.com/77547699/128600634-52879138-f0d8-4e48-9c72-2fc48330840d.png)
 ![3](https://user-images.githubusercontent.com/77547699/128600768-46efb202-6a8d-4704-8916-345cb518c496.png)
 ![7](https://user-images.githubusercontent.com/77547699/128600773-e27e612a-f6f4-410f-8f8f-15c3f046ebf9.png)
@@ -12,5 +19,4 @@
 ![10](https://user-images.githubusercontent.com/77547699/128600810-0c0d4fec-7813-4d82-b4c0-f4c644c815b9.png)
 ![12](https://user-images.githubusercontent.com/77547699/128600815-4e3fbbe8-988b-41aa-b761-89e82afad171.png)
 
-# MVC_CampProject
-Mvc Camp Duty/1
+
